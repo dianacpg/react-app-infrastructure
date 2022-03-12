@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "strict": true,
+    "noEmit": true, //just typecheck without emiting any output
+    "isolatedModules": true, // forbid the features that require cross-file info
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "sourceMap": true
+  },
+  "include": ["./src/**/*"]
+}
