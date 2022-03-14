@@ -1,8 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import LoadableApp from "./LoadableApp";
 
-const App = () => {
-  return <div> Hello World </div>;
-};
+const rootId = document.getElementById("root");
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <React.StrictMode>
+    <LoadableApp />
+  </React.StrictMode>,
+  rootId
+);
+
+if (module.hot && process.env.NODE_ENV === "development") {
+  module.hot.accept("./App", () => {
+    const NextApp = require("./LoadableApp").default;
+    ReactDOM.render(
+      <React.StrictMode>
+        <LoadableApp />
+      </React.StrictMode>,
+      rootId
+    );
+  });
+}

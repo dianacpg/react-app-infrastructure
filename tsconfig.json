@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "es6",
+    "module": "esnext",
     "strict": true,
     "noEmit": true, //just typecheck without emiting any output
     "isolatedModules": true, // forbid the features that require cross-file info
