@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { hot } from "react-hot-loader";
 import './app.scss';
+import PizzaSVG from "./pizza.svg"
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
 
     return (
         <div className="App">
+            <PizzaSVG width={120} height={120} />
             <h1>I'm configuring setting up Webpack!</h1>
             <p>{`The count now is: ${counter}`}</p>
             <button onClick={handleClick}>Click me</button>

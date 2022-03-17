@@ -19,6 +19,10 @@ module.exports = (env) => {
             exclude: /node_modules/,
             use: ["url-loader", "file-loader"],
           },
+         {
+          test: /\.svg$/,
+          loader: '@svgr/webpack'
+         },
           {
             test: /\.tsx?$/,
             loader: "babel-loader",
