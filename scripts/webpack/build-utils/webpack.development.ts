@@ -1,12 +1,18 @@
-// build_utils/webpack.development.ts
+const webpack = require("webpack");
 
-
-
-module.exports = () => ({
-    //entry file to start compiling. dir based on package.json
+module.exports = 
+   {
     output: {
-      path: path.resolve(__dirname, "../../public"),
       filename: "bundle.js",
     },
-  });
+    devtool: "eval-source-map",
+    devServer: {
+      // Enables HMR (hot module replacement) - preserve state
+      hot: true,
+      open: true,
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+    ],
+  };
   
