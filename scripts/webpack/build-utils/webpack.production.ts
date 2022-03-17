@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = 
    {
   output: {
-    path: path.resolve(__dirname, "../../public"),
+    path: path.resolve(__dirname, "../../../public"),
     filename: "productions.js",
   },
   cache: true,
@@ -35,6 +35,6 @@ module.exports =
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin({extractComments: false})],
   },
 };
