@@ -2,16 +2,11 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const path = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = 
    {
-  output: {
-    path: path.resolve(__dirname, "../../../public"),
-    filename: "productions.js",
-  },
   cache: true,
   devtool: 'source-map',
   plugins: [ 

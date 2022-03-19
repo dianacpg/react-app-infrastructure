@@ -1,5 +1,6 @@
 //loads configuration that matches with mode
 const { merge } = require("webpack-merge");
+const path = require("path");
 const modeConfiguration = mode => require(`./build-utils/webpack.${mode}.ts`);
 
 module.exports = (env) => {
@@ -12,17 +13,24 @@ module.exports = (env) => {
       resolve: {
         extensions: [".js", ".ts", ".tsx"],
       },
+      output: {
+        path: path.resolve(__dirname, "../../../public"),
+        filename: "bundle.js",
+      },
       module: {
         rules: [
           {
-            test: /\.jpe?g|png$/,
-            exclude: /node_modules/,
-            use: ["url-loader", "file-loader"],
+            test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+            type: 'asset/resource',
           },
-         {
-          test: /\.svg$/,
-          loader: '@svgr/webpack'
-         },
+          {
+            test: /\.(woff(2)?|eot|ttf|otf)$/,
+            type: 'asset/inline',
+          },
+          {
+            test: /\.svg$/,
+            loader: '@svgr/webpack'
+           },
           {
             test: /\.tsx?$/,
             loader: "babel-loader",
