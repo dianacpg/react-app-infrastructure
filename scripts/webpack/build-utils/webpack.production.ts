@@ -1,13 +1,15 @@
-// build_utils/webpack.production.ts
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 module.exports = {
   cache: true,
   devtool: "source-map",
+  /** JS object that has an apply method. This method is called by the
+   * compiler, giving access to the entire compilation lifecycle. Adds additional
+   * functionality to compilations (optimized bundled modules)
+   */
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
